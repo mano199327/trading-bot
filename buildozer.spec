@@ -1,5 +1,4 @@
 [app]
-
 title = TradingBot
 package.name = tradingbot
 package.domain = org.test
@@ -19,6 +18,5 @@ p4a.branch = master
 bootstraps = sdl2
 
 [buildozer]
-
 log_level = 2
 warn_on_root = 1
