@@ -21,12 +21,20 @@ jobs:
     - name: Install System Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y ccache git libffi-dev libssl-dev python3-dev zip unzip openjdk-17-jdk
+        sudo apt-get install -y ccache git libffi-dev libssl-dev python3-dev zip unzip openjdk-17-jdk wget
 
     - name: Install Buildozer and Cython
       run: |
         pip install --upgrade pip setuptools
         pip install "cython<3.0.0" buildozer
+
+    - name: Download Manual NDK r25b
+      run: |
+        mkdir -p ~/.buildozer/android/platform
+        cd ~/.buildozer/android/platform
+        wget -q https://dl.google.com/android/repository/android-ndk-r25b-linux.zip
+        unzip -q android-ndk-r25b-linux.zip
+        mv android-ndk-r25b android-ndk-r25b
 
     - name: Build APK
       run: |
